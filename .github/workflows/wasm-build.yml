@@ -19,7 +19,6 @@ jobs:
     - name: Install workloads
       run: dotnet workload install wasm-tools
     - name: Publish with dotnet
-      working-directory: ./MathNotationTool
       run: dotnet publish "./MathNotationTool.Web/MathNotationTool.Web.csproj" -c Release --output ../build
     - name: Deploy to Github Pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
