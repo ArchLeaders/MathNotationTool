@@ -61,7 +61,7 @@ I'll go over what I use in my everyday programming.
 
 - Google. A web engine that makes learning resources easily accessible with just a few words.
 - GitHub. This online software makes tracking and managing projects easy and hassle-free.
-- [Visual Studio]() and [Visual Studio Code](), are two production IDEs to develop software as efficiently and easily as possible. <!--  Microsoft. You make great software man, but please, cut it with the vaccines already.  -->
+- Visual Studio and Visual Studio Code, are two production IDEs to develop software as efficiently and easily as possible. <!--  Microsoft. You make great software man, but please, cut it with the vaccines already.  -->
 - And various other peices of software.
 
 ### How Much Time do I Spend Learning
