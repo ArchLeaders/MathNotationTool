@@ -1,14 +1,11 @@
 name: wasm-build
-
-on:
-  push:
-    path:
-      - 'Version.yml'
+on: push
 
 jobs:
   Build:
 
     runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'Deploy')
 
     steps:
     - uses: actions/checkout@v2
