@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathNotationTool", "MathNotationTool\MathNotationTool.csproj", "{8D15BDC8-DE35-47AA-A3EF-3752F7269864}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathNotationTool.Android", "MathNotationTool.Android\MathNotationTool.Android.csproj", "{E65BF5B1-E6F8-4C39-94DA-1F8A3D4C7EA5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathNotationTool.Web", "MathNotationTool.Web\MathNotationTool.Web.csproj", "{7CAA0C50-A05F-4EC8-A604-2AD9C25F6277}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathNotationTool.Desktop", "MathNotationTool.Desktop\MathNotationTool.Desktop.csproj", "{BAD1575A-D77D-4A11-8DAC-3CD882ECF72E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +19,14 @@ Global
 		{8D15BDC8-DE35-47AA-A3EF-3752F7269864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D15BDC8-DE35-47AA-A3EF-3752F7269864}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D15BDC8-DE35-47AA-A3EF-3752F7269864}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E65BF5B1-E6F8-4C39-94DA-1F8A3D4C7EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E65BF5B1-E6F8-4C39-94DA-1F8A3D4C7EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E65BF5B1-E6F8-4C39-94DA-1F8A3D4C7EA5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{E65BF5B1-E6F8-4C39-94DA-1F8A3D4C7EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E65BF5B1-E6F8-4C39-94DA-1F8A3D4C7EA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E65BF5B1-E6F8-4C39-94DA-1F8A3D4C7EA5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{7CAA0C50-A05F-4EC8-A604-2AD9C25F6277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7CAA0C50-A05F-4EC8-A604-2AD9C25F6277}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CAA0C50-A05F-4EC8-A604-2AD9C25F6277}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CAA0C50-A05F-4EC8-A604-2AD9C25F6277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD1575A-D77D-4A11-8DAC-3CD882ECF72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD1575A-D77D-4A11-8DAC-3CD882ECF72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD1575A-D77D-4A11-8DAC-3CD882ECF72E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD1575A-D77D-4A11-8DAC-3CD882ECF72E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
