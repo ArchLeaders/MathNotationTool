@@ -7,13 +7,19 @@
 
 a {
     text-decoration: none;
-    color: white;
+    color: #ffffff;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #6136f0;
+    transition: color 0.2s;
 }
 
 #blazor-error-ui {
-    background: lightyellow;
+    background: #d35656;
     bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -1px 2px #00000033;
     display: none;
     left: 0;
     padding: 0.6rem 1.25rem 0.7rem 1.25rem;
@@ -52,12 +58,13 @@ canvas
 
 #app, .page {
     height: 100%;
-    background: #171C2C;
-    color: white;
+    background: #151026;
+    color: #ffffff;
 }
 
 .navbar-brand {
     font-size: 22px;
+    margin: 15px;
 }
 
 .overlay{
