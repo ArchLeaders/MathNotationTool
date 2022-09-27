@@ -17,7 +17,8 @@
     <Optimize>true</Optimize>
     <WasmNativeStrip>true</WasmNativeStrip>
 	<EmccCompileOptimizationFlag>-O3</EmccCompileOptimizationFlag>
-    <EmccLinkOptimizationFlag>-O3</EmccLinkOptimizationFlag>
+	<EmccLinkOptimizationFlag>-O3</EmccLinkOptimizationFlag>
+	<EmccTotalMemory>536870912</EmccTotalMemory>
     <RunAOTCompilation>true</RunAOTCompilation>
   </PropertyGroup>
   
