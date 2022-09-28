@@ -7,7 +7,6 @@
 
 a {
     text-decoration: none;
-    color: #ffffff;
     transition: color 0.2s;
 }
 
@@ -28,12 +27,12 @@ a:hover {
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
-    }
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
 
 .canvas-container {
     opacity:1;
@@ -58,8 +57,8 @@ canvas
 
 #app, .page {
     height: 100%;
-    background: #2f333a;
-    color: #E1E1E1;
+    background: #171717;
+    color: #cdcdcd;
 }
 
 .navbar-brand {
