@@ -11,6 +11,7 @@ namespace MathNotationTool.Views
         public CalculatorView()
         {
             InitializeComponent();
+
             DataContext = new CalculatorViewModel();
             CalculatorStack = this.Find<StackPanel>("CalculatorStack");
 
@@ -35,6 +36,7 @@ namespace MathNotationTool.Views
                         Content = columnStr,
                         FontFamily = new("Consolas"),
                         FontWeight = FontWeight.Medium,
+                        FontSize = 16,
                         VerticalContentAlignment = VerticalAlignment.Center,
                         HorizontalContentAlignment = HorizontalAlignment.Center,
                         Height = 40,

@@ -5,15 +5,13 @@
              mc:Ignorable="d" d:DesignWidth="325" d:DesignHeight="450"
              x:Class="MathNotationTool.Views.CalculatorView">
 	<Grid RowDefinitions="*,275"
-						VerticalAlignment="Stretch">
+          VerticalAlignment="Stretch">
 		<ListBox Padding="10"
-				 Background="Transparent"
-				 CornerRadius="4">
+                 Background="Transparent"
+                 CornerRadius="4">
 			<ListBoxItem Content="4 x 5 = 20" CornerRadius="4" />
 		</ListBox>
 		<StackPanel Grid.Row="1"
-					Name="CalculatorStack">
-			
-		</StackPanel>
+                    Name="CalculatorStack" />
 	</Grid>
 </UserControl>

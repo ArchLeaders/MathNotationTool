@@ -4,12 +4,11 @@
              xmlns:ae="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="450" d:DesignWidth="800" mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MathNotationTool.ViewModels"
              xmlns:views="clr-namespace:MathNotationTool.Views"
-             d:DesignHeight="450"
-             d:DesignWidth="800"
-			 CornerRadius="8"
-             mc:Ignorable="d">
+             Background="{DynamicResource SystemChromeLowColor}"
+			 CornerRadius="8">
     <Design.DataContext>
         <viewModels:AppViewModel />
     </Design.DataContext>
@@ -32,13 +31,14 @@
                                WordWrap="False" />
             </Border>
 
-            <Border Grid.Column="1"
+            <Border Grid.Column="1" 
                     Margin="15,0,0,0"
                     BorderBrush="#1f1f1f"
                     BorderThickness="2"
+					Padding="0,0,0,2"
                     BoxShadow="4 4 20 2 #25000000"
                     CornerRadius="4">
-				<views:CalculatorView />
+                <views:CalculatorView />
             </Border>
         </Grid>
     </Grid>
