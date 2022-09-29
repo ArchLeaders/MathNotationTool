@@ -1,0 +1,118 @@
+<Window x:Class="MathNotationTool.Views.AppWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mdix="using:Material.Icons.Avalonia"
+        xmlns:views="clr-namespace:MathNotationTool.Views"
+        xmlns:vm="using:MathNotationTool.ViewModels"
+        Title="Math Notation Tool"
+        d:DesignHeight="450"
+        d:DesignWidth="800"
+        Height="600"
+        Width="1000"
+        Background="Transparent"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaTitleBarHeightHint="90"
+        ExtendClientAreaToDecorationsHint="True"
+        Icon="/Assets/Icon.ico"
+        TransparencyLevelHint="Transparent"
+		Padding="8"
+        mc:Ignorable="d">
+
+    <Border Background="{DynamicResource SystemChromeLowColor}"
+            CornerRadius="8"
+			BoxShadow="1 1 6 1 #35000000"
+            IsHitTestVisible="False">
+        <Grid RowDefinitions="45,*">
+            <Grid Margin="30,0,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Bottom"
+				  ColumnDefinitions="40,*"
+                  IsHitTestVisible="False">
+                <Image Width="32"
+	                   Height="32"
+	                   HorizontalAlignment="Left"
+	                   VerticalAlignment="Center"
+	                   IsHitTestVisible="False"
+	                   Source="/Assets/Icon.ico" />
+                <TextBlock Grid.Column="1"
+						   FontFamily="Segoe UI"
+                           FontSize="16"
+                           FontWeight="SemiLight"
+						   Margin="5,5,0,0"
+                           IsHitTestVisible="False"
+                           Text="{Binding Version}" />
+            </Grid>
+            <StackPanel Margin="0,0,30,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Orientation="Horizontal">
+                <Button Width="32"
+                        Height="32"
+                        Padding="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        Command="{Binding ChangeTheme}">
+                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="ThemeLightDark">
+                        <mdix:MaterialIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                        </mdix:MaterialIcon.RenderTransform>
+                    </mdix:MaterialIcon>
+                </Button>
+                <Button Width="32"
+                        Height="32"
+                        Padding="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        Command="{Binding Minimize}">
+                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="Minus">
+                        <mdix:MaterialIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                        </mdix:MaterialIcon.RenderTransform>
+                    </mdix:MaterialIcon>
+                </Button>
+                <Button Width="32"
+                        Height="32"
+                        Padding="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        Command="{Binding ChangeState}">
+                    <Grid Margin="0,0,1,1">
+                        <mdix:MaterialIcon Margin="0,1,0,0"
+                                           IsVisible="{Binding !IsMaximized}"
+                                           Kind="Fullscreen">
+                            <mdix:MaterialIcon.RenderTransform>
+                                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                            </mdix:MaterialIcon.RenderTransform>
+                        </mdix:MaterialIcon>
+                        <mdix:MaterialIcon Margin="0,1,0,0"
+                                           IsVisible="{Binding IsMaximized}"
+                                           Kind="WindowRestore">
+                            <mdix:MaterialIcon.RenderTransform>
+                                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                            </mdix:MaterialIcon.RenderTransform>
+                        </mdix:MaterialIcon>
+                    </Grid>
+                </Button>
+                <Button Width="32"
+                        Height="32"
+                        Padding="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        Command="{Binding Close}">
+                    <mdix:MaterialIcon Margin="0,1,0,0" Kind="Close">
+                        <mdix:MaterialIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                        </mdix:MaterialIcon.RenderTransform>
+                    </mdix:MaterialIcon>
+                </Button>
+            </StackPanel>
+            <views:AppView Grid.Row="1" />
+        </Grid>
+    </Border>
+</Window>

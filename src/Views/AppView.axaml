@@ -1,0 +1,44 @@
+<UserControl x:Class="MathNotationTool.Views.AppView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ae="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="450" d:DesignWidth="800" mc:Ignorable="d"
+             xmlns:viewModels="clr-namespace:MathNotationTool.ViewModels"
+             xmlns:views="clr-namespace:MathNotationTool.Views"
+			 CornerRadius="8">
+    <Design.DataContext>
+        <viewModels:AppViewModel />
+    </Design.DataContext>
+
+    <Grid Margin="30">
+        <Grid ColumnDefinitions="*,345">
+            <Border Margin="0,0,10,0"
+                    BorderBrush="{DynamicResource SystemChromeMediumColor}"
+                    BorderThickness="2"
+                    BoxShadow="4 4 20 2 #25000000"
+                    CornerRadius="4">
+                <ae:TextEditor x:Name="editor"
+                               Padding="10"
+                               FontFamily="Consolas,Menlo,Monospace"
+                               FontSize="14"
+                               FontWeight="Light"
+                               HorizontalScrollBarVisibility="Auto"
+                               Text="// &#x0a;// Math Notation Here!&#x0a;&#x0a;// Inline math functions&#x0a;int inline = 15 + 45 * 34;&#x0a;&#x0a;// Reference an equation in the history panel&#x0a;int refernce = query();&#x0a;&#x0a;// Return the final solution&#x0a;return inline + refernce;"
+                               VerticalScrollBarVisibility="Auto"
+                               WordWrap="False" />
+            </Border>
+
+            <Border Grid.Column="1"
+                    Margin="10,0,0,0"
+                    BorderBrush="{DynamicResource SystemChromeMediumColor}"
+                    BorderThickness="2"
+					Padding="0,0,0,2"
+                    BoxShadow="4 4 20 2 #25000000"
+                    CornerRadius="4">
+                <views:CalculatorView />
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
