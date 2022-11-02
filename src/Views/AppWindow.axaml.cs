@@ -16,12 +16,12 @@ namespace MathNotationTool.Views
         {
             if (state == WindowState.Maximized) {
                 Padding = new Thickness(5);
-                ExtendClientAreaTitleBarHeightHint = 44;
+                ExtendClientAreaTitleBarHeightHint = 104;
                 (DataContext as AppViewModel)!.IsMaximized = true;
             }
             else {
                 Padding = new Thickness(8);
-                ExtendClientAreaTitleBarHeightHint = 30;
+                ExtendClientAreaTitleBarHeightHint = 90;
                 (DataContext as AppViewModel)!.IsMaximized = false;
             }
 
