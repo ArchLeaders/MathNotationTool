@@ -34,7 +34,7 @@ namespace MathNotationTool.Views
                 };
                 foreach (var columnStr in rowStr.Split(' ')) {
 
-                    MethodInfo click = DataContext.GetType().GetMethod($"Function_{columnStr.Replace("=", "Equals")}") ?? DataContext.GetType().GetMethod($"Function_Generic")!;
+                    MethodInfo click = DataContext.GetType().GetMethod($"Function_{columnStr.Replace("=", "Equals").Replace("←", "Backspace")}") ?? DataContext.GetType().GetMethod($"Function_Generic")!;
                     Button btn;
 
                     if (columnStr.StartsWith('!')) {
