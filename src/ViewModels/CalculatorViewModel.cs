@@ -30,10 +30,17 @@ namespace MathNotationTool.ViewModels
         public void Function_Equals(string _) => Current = "";
 
         /// <summary>
+        /// Equals functions (=)
+        /// </summary>
+        /// <param name="_"></param>
+        public void Function_Backspace(string _) => Current = Current.Length > 0 ? Current.Remove(Current.Length - 1, 1) : Current;
+
+        /// <summary>
         /// generic calc function
         /// </summary>
         /// <param name="key"></param>
-        public void Function_Generic(string key) => Current += $"{(Current == "" || Current.LastOrDefault() == '(' || (int.TryParse(Current.LastOrDefault().ToString(), out int _) && int.TryParse(key.Split('|')[0], out int _)) ? "" : " ")}{key.Split('|')[0]}";
+        public void Function_Generic(string key) =>
+            Current += $"{(Current == "" || Current.LastOrDefault() == '(' || Current.LastOrDefault() == '.' || key.Split('|')[0] == "." || (int.TryParse(Current.LastOrDefault().ToString(), out int _) && int.TryParse(key.Split('|')[0], out int _)) ? "" : " ")}{key.Split('|')[0]}";
             // var _a1 = Current == "";
             // var _a2 = Current.LastOrDefault() == '(';
             // var _a3 = int.TryParse(Current.LastOrDefault().ToString(), out int _);
