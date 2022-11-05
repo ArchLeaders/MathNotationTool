@@ -8,6 +8,11 @@ using MathNotationTool.Views;
 using Avalonia.Themes.Fluent;
 using System;
 using System.IO;
+using AvaloniaGenerics.Dialogs;
+using Microsoft.CodeAnalysis.Scripting;
+using Microsoft.CodeAnalysis.CSharp.Scripting;
+using System.Threading.Tasks;
+using AngouriMath;
 
 namespace MathNotationTool
 {
@@ -15,7 +20,10 @@ namespace MathNotationTool
     {
         internal static readonly string ThemeFile = $"{Environment.GetEnvironmentVariable("LOCALAPPDATA")}\\MathNotationTool.theme";
 
-        public static AppWindow View { get; private set; } = null!;
+        public static ScriptOptions RosylnDefaults = null!;
+        public static ShellView Shell { get; private set; } = null!;
+        public static ShellViewModel ShellContext { get; private set; } = null!;
+        public static AppView View { get; private set; } = null!;
         public static AppViewModel ViewModel { get; private set; } = null!;
         public static FluentTheme Theme { get; set; } = new(new Uri("avares://BotwAvaloniaTemplate/Styles"));
 
@@ -33,14 +41,20 @@ namespace MathNotationTool
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
 
                 // Create desktop instance
-                View = new();
-                desktop.MainWindow = View;
+                Shell = new();
+                desktop.MainWindow = Shell;
 
-                // Create data context
+                View = new();
                 ViewModel = new();
                 View.DataContext = ViewModel;
+
+                // Create data context
+                ShellContext = new(View);
+                Shell.DataContext = ShellContext;
             }
 
+            RosylnDefaults = ScriptOptions.Default.WithReferences(GetType().Assembly).WithImports("MathNotationTool.Extensions.CodeExt");
+            Initializer.InitializeGenericDialogs(Shell);
             base.OnFrameworkInitializationCompleted();
         }
     }
