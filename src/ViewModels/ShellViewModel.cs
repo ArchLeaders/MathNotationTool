@@ -35,7 +35,7 @@ namespace MathNotationTool.ViewModels
         //
         // Window stuff
 
-        private string version = "Math Notation Tool - v0.0.4-alpha"; // Use compile time keys for version?
+        private string version = "Math Notation Tool - v1.0.0"; // Use compile time keys for version?
         public string Version {
             get => version;
             set => this.RaiseAndSetIfChanged(ref version, value);
