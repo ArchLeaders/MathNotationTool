@@ -53,7 +53,7 @@ namespace MathNotationTool.Models
         public HistoryItemModel(string equationStr)
         {
             string eq = equationStr.GetSafe();
-            Name = $"{ViewModel.Calculator.ViewModel.History.Count + 1}";
+            Name = $"{ViewModel.Calculator.ViewModel.LastId++}";
             SrcEquation = eq;
             SrcEquationStr = eq;
             Value = (decimal)SrcEquation.EvalNumerical();
