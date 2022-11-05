@@ -4,9 +4,9 @@ using MathNotationTool.ViewModels;
 
 namespace MathNotationTool.Views
 {
-    public partial class AppWindow : Window
+    public partial class ShellView : Window
     {
-        public AppWindow()
+        public ShellView()
         {
             InitializeComponent();
         }
@@ -17,12 +17,12 @@ namespace MathNotationTool.Views
             if (state == WindowState.Maximized) {
                 Padding = new Thickness(5);
                 ExtendClientAreaTitleBarHeightHint = 104;
-                (DataContext as AppViewModel)!.IsMaximized = true;
+                ShellContext.IsMaximized = true;
             }
             else {
                 Padding = new Thickness(8);
                 ExtendClientAreaTitleBarHeightHint = 90;
-                (DataContext as AppViewModel)!.IsMaximized = false;
+                ShellContext.IsMaximized = false;
             }
 
             base.HandleWindowStateChanged(state);

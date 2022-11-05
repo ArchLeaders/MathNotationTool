@@ -1,4 +1,4 @@
-<Window x:Class="MathNotationTool.Views.AppWindow"
+<Window x:Class="MathNotationTool.Views.ShellView"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,44 +7,45 @@
         xmlns:views="clr-namespace:MathNotationTool.Views"
         xmlns:vm="using:MathNotationTool.ViewModels"
         Title="Math Notation Tool"
+        Width="1000"
+        Height="600"
+        Padding="8"
         d:DesignHeight="450"
         d:DesignWidth="800"
-        Height="600"
-        Width="1000"
         Background="Transparent"
         ExtendClientAreaChromeHints="NoChrome"
         ExtendClientAreaTitleBarHeightHint="90"
         ExtendClientAreaToDecorationsHint="True"
         Icon="/Assets/Icon.ico"
         TransparencyLevelHint="Transparent"
-		Padding="8"
         mc:Ignorable="d">
 
-    <Border Background="{DynamicResource SystemChromeLowColor}"
-            CornerRadius="8"
-			BoxShadow="1 1 6 1 #35000000"
-            IsHitTestVisible="False">
-        <Grid RowDefinitions="45,*">
-            <Grid Margin="30,0,0,0"
+    <Border BoxShadow="1 1 6 1 #35000000" CornerRadius="8">
+        <Grid RowDefinitions="75,*">
+            <Border Background="{DynamicResource SystemChromeLowColor}"
+                    CornerRadius="8,8,0,0"
+                    IsHitTestVisible="False" />
+            <Border Grid.Row="1"
+                    Background="{DynamicResource SystemChromeLowColor}"
+                    CornerRadius="0,0,8,8" />
+            <Grid Margin="30,0,0,30"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Bottom"
-				  ColumnDefinitions="40,*"
+                  ColumnDefinitions="40,*"
                   IsHitTestVisible="False">
                 <Image Width="32"
-	                   Height="32"
-	                   HorizontalAlignment="Left"
-	                   VerticalAlignment="Center"
-	                   IsHitTestVisible="False"
-	                   Source="/Assets/Icon.ico" />
+                       Height="32"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Source="/Assets/Icon.ico" />
                 <TextBlock Grid.Column="1"
-						   FontFamily="Segoe UI"
+                           Margin="5,5,0,0"
+                           FontFamily="Segoe UI"
                            FontSize="16"
                            FontWeight="SemiLight"
-						   Margin="5,5,0,0"
-                           IsHitTestVisible="False"
                            Text="{Binding Version}" />
             </Grid>
-            <StackPanel Margin="0,0,30,0"
+            <StackPanel Margin="0,0,30,30"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
                         Orientation="Horizontal">
@@ -54,13 +55,79 @@
                         HorizontalContentAlignment="Center"
                         VerticalContentAlignment="Center"
                         Background="Transparent"
-                        Command="{Binding ChangeTheme}">
+                        Command="{Binding Execute}"
+                        ToolTip.Tip="Calculate math notes">
+                    <mdix:MaterialIcon Margin="1.5,0,0,0" Kind="PlayOutline">
+                        <mdix:MaterialIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                        </mdix:MaterialIcon.RenderTransform>
+                    </mdix:MaterialIcon>
+                </Button>
+                <Border Width="1"
+                        Margin="5,0"
+                        Background="{DynamicResource SystemChromeHighColor}" />
+                <Button Width="32"
+                        Height="32"
+                        Padding="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        Command="{Binding CreateProject}"
+                        ToolTip.Tip="Create new project">
+                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="FileDocumentAddOutline">
+                        <mdix:MaterialIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                        </mdix:MaterialIcon.RenderTransform>
+                    </mdix:MaterialIcon>
+                </Button>
+                <Button Width="32"
+                        Height="32"
+                        Padding="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        Command="{Binding OpenProject}"
+                        ToolTip.Tip="Open project">
+                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="FolderArrowRightOutline">
+                        <mdix:MaterialIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                        </mdix:MaterialIcon.RenderTransform>
+                    </mdix:MaterialIcon>
+                </Button>
+                <Button Width="32"
+                        Height="32"
+                        Padding="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        Command="{Binding SaveProject}"
+                        ToolTip.Tip="Save project">
+                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="ContentSave">
+                        <mdix:MaterialIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                        </mdix:MaterialIcon.RenderTransform>
+                    </mdix:MaterialIcon>
+                </Button>
+                <Border Width="1"
+                        Margin="5,0"
+                        Background="{DynamicResource SystemChromeHighColor}" />
+                <Button Width="32"
+                        Height="32"
+                        Padding="0"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Background="Transparent"
+                        Command="{Binding ChangeTheme}"
+                        ToolTip.Tip="Change UI theme">
                     <mdix:MaterialIcon Margin="0,2,0,0" Kind="ThemeLightDark">
                         <mdix:MaterialIcon.RenderTransform>
                             <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
                         </mdix:MaterialIcon.RenderTransform>
                     </mdix:MaterialIcon>
                 </Button>
+                <Border Width="1"
+                        Margin="5,0"
+                        Background="{DynamicResource SystemChromeHighColor}" />
                 <Button Width="32"
                         Height="32"
                         Padding="0"
@@ -112,7 +179,7 @@
                     </mdix:MaterialIcon>
                 </Button>
             </StackPanel>
-            <views:AppView Grid.Row="1" />
+            <ContentControl Grid.Row="1" Content="{Binding Content}" />
         </Grid>
     </Border>
 </Window>
