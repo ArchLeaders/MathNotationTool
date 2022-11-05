@@ -1,18 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using MathNotationTool.Models;
 
 namespace MathNotationTool.ViewModels
 {
     public class CalculatorViewModel : ReactiveObject
     {
+        internal static readonly string[] BadChars = new string[] { "x*", "÷/", "πpi" };
 
         private string current = "";
         public string Current {
             get => current;
             set => this.RaiseAndSetIfChanged(ref current, value);
+        }
+
+        private ObservableCollection<HistoryItemModel> history = new();
+        public ObservableCollection<HistoryItemModel> History {
+            get => history;
+            set => this.RaiseAndSetIfChanged(ref history, value);
         }
 
         public void Print() => Debug.WriteLine(Current);
@@ -27,7 +36,13 @@ namespace MathNotationTool.ViewModels
         /// Equals functions (=)
         /// </summary>
         /// <param name="_"></param>
-        public void Function_Equals(string _) => Current = "";
+        public void Function_Equals(string _)
+        {
+            if (!string.IsNullOrEmpty(Current)) {
+                History.Add(new(Current));
+                Current = "";
+            }
+        }
 
         /// <summary>
         /// Equals functions (=)
