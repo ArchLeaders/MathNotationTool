@@ -1,22 +1,124 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<UserControl x:Class="MathNotationTool.Views.CalculatorView"
+             xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="325" d:DesignHeight="450"
-             x:Class="MathNotationTool.Views.CalculatorView">
-	<Grid RowDefinitions="*,275"
-          VerticalAlignment="Stretch">
-        <Button Content="Print"
+             xmlns:mdix="using:Material.Icons.Avalonia"
+             d:DesignHeight="450"
+             d:DesignWidth="320"
+             mc:Ignorable="d">
+    <Grid VerticalAlignment="Stretch" RowDefinitions="*,20,275">
+        <Button Margin="15"
+                HorizontalAlignment="Stretch"
                 Command="{Binding Print}"
-                Margin="15"
-                HorizontalAlignment="Stretch" />
-		<ListBox Padding="10"
+                Content="Print"
+                IsVisible="False" />
+        <ListBox Padding="10"
+                 VerticalAlignment="Bottom"
                  Background="Transparent"
-                 CornerRadius="4"
-                 IsVisible="False">
-			<ListBoxItem Content="4 x 5 = 20" CornerRadius="4" />
-		</ListBox>
-		<StackPanel Grid.Row="1"
-                    Name="CalculatorStack" />
-	</Grid>
+                 Items="{Binding History}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="10,8,8,7"
+                            Background="Transparent"
+                            CornerRadius="4">
+                        <Grid RowDefinitions="auto,auto">
+                            <TextBlock HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Center"
+                                       FontSize="10"
+                                       Opacity="0.6"
+                                       Text="{Binding Name, StringFormat=Id: {0}}" />
+                            <TextBlock Grid.Row="1"
+                                       Height="18"
+                                       Margin="0,2,0,0"
+                                       HorizontalAlignment="Stretch"
+                                       FontSize="12"
+                                       IsVisible="{Binding !IsRenaming}"
+                                       Text="{Binding EvaluatedStr}" />
+                        </Grid>
+                        <Border.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Command="{Binding Copy}" Header="Copy">
+                                    <MenuItem.Icon>
+                                        <mdix:MaterialIcon Kind="ContentCopy" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Command="{Binding CopyId}" Header="Copy ID">
+                                    <MenuItem.Icon>
+                                        <mdix:MaterialIcon Kind="IdentificationCardOutline" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Command="{Binding CopySolution}" Header="Copy Solution">
+                                    <MenuItem.Icon>
+                                        <mdix:MaterialIcon Kind="DataMatrixScan" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <Separator />
+                                <MenuItem Command="{Binding Remove}" Header="Remove">
+                                    <MenuItem.Icon>
+                                        <mdix:MaterialIcon Kind="Delete" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <Separator />
+                                <MenuItem Command="{Binding Clear}" Header="Clear">
+                                    <MenuItem.Icon>
+                                        <mdix:MaterialIcon Kind="DeleteSweepOutline" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </Border.ContextMenu>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.Styles>
+                <Style Selector="ListBoxItem">
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="Background" Value="{DynamicResource SystemChromeLowColor}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColorDark2}" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="CornerRadius" Value="4" />
+                    <!--<Setter Property="Padding" Value="10,8,8,7" />-->
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Opacity" Value="0.8" />
+                    <Setter Property="Margin" Value="0,4" />
+                    <Setter Property="Focusable" Value="False" />
+                    <Setter Property="ToolTip.Tip" Value="{Binding EvaluatedStr}" />
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        </Transitions>
+                    </Setter>
+                </Style>
+                <Style Selector="ListBoxItem /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <BrushTransition Property="Background" Duration="0:0:0.2" />
+                        </Transitions>
+                    </Setter>
+                </Style>
+                <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="{DynamicResource SystemChromeMediumColor}" />
+                    <Setter Property="Foreground" Value="{DynamicResource SystemControlHighlightAltBaseHighBrush}" />
+                </Style>
+                <Style Selector="ListBoxItem:selected">
+                    <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="{DynamicResource SystemAccentColorDark1}" />
+                        <Setter Property="Foreground" Value="{DynamicResource SystemControlHighlightAltBaseHighBrush}" />
+                    </Style>
+                </Style>
+            </ListBox.Styles>
+        </ListBox>
+        <Border Grid.Row="1"
+                Margin="5,0"
+                Padding="0,2,0,0"
+                BorderBrush="{DynamicResource SystemAccentColorDark2}"
+                BorderThickness="0,1">
+            <TextBlock Height="20"
+                       VerticalAlignment="Center"
+                       FontFamily="Consolas"
+                       FontWeight="11"
+                       Text="{Binding Current}" />
+        </Border>
+        <StackPanel Name="CalculatorStack" Grid.Row="2" />
+    </Grid>
 </UserControl>

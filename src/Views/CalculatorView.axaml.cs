@@ -10,6 +10,8 @@ namespace MathNotationTool.Views
 {
     public partial class CalculatorView : UserControl
     {
+        public CalculatorViewModel ViewModel => (DataContext as CalculatorViewModel)!;
+
         public CalculatorView()
         {
             InitializeComponent();
