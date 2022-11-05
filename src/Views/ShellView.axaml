@@ -18,160 +18,158 @@
         Icon="/Assets/Icon.ico"
         mc:Ignorable="d">
 
-    <Border BoxShadow="1 1 6 1 #35000000" CornerRadius="8">
-        <Grid RowDefinitions="75,*">
-            <Grid Margin="30,0,0,30"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Bottom"
-                  ColumnDefinitions="40,*"
-                  IsHitTestVisible="False">
-                <Image Width="32"
-                       Height="32"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Source="/Assets/Icon.ico" />
-                <TextBlock Grid.Column="1"
-                           Margin="5,5,0,0"
-                           FontFamily="Segoe UI"
-                           FontSize="16"
-                           FontWeight="SemiLight"
-                           Text="{Binding Version}" />
-            </Grid>
-            <StackPanel Margin="0,0,30,30"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom"
-                        Orientation="Horizontal">
-                <Button Width="32"
-                        Height="32"
-                        Padding="0"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        Command="{Binding Execute}"
-                        ToolTip.Tip="Calculate math notes">
-                    <mdix:MaterialIcon Margin="1.5,0,0,0" Kind="PlayOutline">
-                        <mdix:MaterialIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                        </mdix:MaterialIcon.RenderTransform>
-                    </mdix:MaterialIcon>
-                </Button>
-                <Border Width="1"
-                        Margin="5,0"
-                        Background="{DynamicResource SystemChromeHighColor}" />
-                <Button Width="32"
-                        Height="32"
-                        Padding="0"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        Command="{Binding CreateProject}"
-                        ToolTip.Tip="Create new project">
-                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="FileDocumentAddOutline">
-                        <mdix:MaterialIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                        </mdix:MaterialIcon.RenderTransform>
-                    </mdix:MaterialIcon>
-                </Button>
-                <Button Width="32"
-                        Height="32"
-                        Padding="0"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        Command="{Binding OpenProject}"
-                        ToolTip.Tip="Open project">
-                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="FolderArrowRightOutline">
-                        <mdix:MaterialIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                        </mdix:MaterialIcon.RenderTransform>
-                    </mdix:MaterialIcon>
-                </Button>
-                <Button Width="32"
-                        Height="32"
-                        Padding="0"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        Command="{Binding SaveProject}"
-                        ToolTip.Tip="Save project">
-                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="ContentSave">
-                        <mdix:MaterialIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                        </mdix:MaterialIcon.RenderTransform>
-                    </mdix:MaterialIcon>
-                </Button>
-                <Border Width="1"
-                        Margin="5,0"
-                        Background="{DynamicResource SystemChromeHighColor}" />
-                <Button Width="32"
-                        Height="32"
-                        Padding="0"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        Command="{Binding ChangeTheme}"
-                        ToolTip.Tip="Change UI theme">
-                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="ThemeLightDark">
-                        <mdix:MaterialIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                        </mdix:MaterialIcon.RenderTransform>
-                    </mdix:MaterialIcon>
-                </Button>
-                <Border Width="1"
-                        Margin="5,0"
-                        Background="{DynamicResource SystemChromeHighColor}" />
-                <Button Width="32"
-                        Height="32"
-                        Padding="0"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        Command="{Binding Minimize}">
-                    <mdix:MaterialIcon Margin="0,2,0,0" Kind="Minus">
-                        <mdix:MaterialIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                        </mdix:MaterialIcon.RenderTransform>
-                    </mdix:MaterialIcon>
-                </Button>
-                <Button Width="32"
-                        Height="32"
-                        Padding="0"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        Command="{Binding ChangeState}">
-                    <Grid Margin="0,0,1,1">
-                        <mdix:MaterialIcon Margin="0,1,0,0"
-                                           IsVisible="{Binding !IsMaximized}"
-                                           Kind="Fullscreen">
-                            <mdix:MaterialIcon.RenderTransform>
-                                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                            </mdix:MaterialIcon.RenderTransform>
-                        </mdix:MaterialIcon>
-                        <mdix:MaterialIcon Margin="0,1,0,0"
-                                           IsVisible="{Binding IsMaximized}"
-                                           Kind="WindowRestore">
-                            <mdix:MaterialIcon.RenderTransform>
-                                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                            </mdix:MaterialIcon.RenderTransform>
-                        </mdix:MaterialIcon>
-                    </Grid>
-                </Button>
-                <Button Width="32"
-                        Height="32"
-                        Padding="0"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        Command="{Binding Close}">
-                    <mdix:MaterialIcon Margin="0,1,0,0" Kind="Close">
-                        <mdix:MaterialIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
-                        </mdix:MaterialIcon.RenderTransform>
-                    </mdix:MaterialIcon>
-                </Button>
-            </StackPanel>
-            <ContentControl Grid.Row="1" Content="{Binding Content}" />
+    <Grid RowDefinitions="75,*">
+        <Grid Margin="30,0,0,30"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Bottom"
+              ColumnDefinitions="40,*"
+              IsHitTestVisible="False">
+            <Image Width="32"
+                   Height="32"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Source="/Assets/Icon.ico" />
+            <TextBlock Grid.Column="1"
+                       Margin="5,5,0,0"
+                       FontFamily="Segoe UI"
+                       FontSize="16"
+                       FontWeight="SemiLight"
+                       Text="{Binding Version}" />
         </Grid>
-    </Border>
+        <StackPanel Margin="0,0,30,30"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal">
+            <Button Width="32"
+                    Height="32"
+                    Padding="0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Command="{Binding Execute}"
+                    ToolTip.Tip="Calculate math notes">
+                <mdix:MaterialIcon Margin="1.5,0,0,0" Kind="PlayOutline">
+                    <mdix:MaterialIcon.RenderTransform>
+                        <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                    </mdix:MaterialIcon.RenderTransform>
+                </mdix:MaterialIcon>
+            </Button>
+            <Border Width="1"
+                    Margin="5,0"
+                    Background="{DynamicResource SystemChromeHighColor}" />
+            <Button Width="32"
+                    Height="32"
+                    Padding="0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Command="{Binding CreateProject}"
+                    ToolTip.Tip="Create new project">
+                <mdix:MaterialIcon Margin="0,2,0,0" Kind="FileDocumentAddOutline">
+                    <mdix:MaterialIcon.RenderTransform>
+                        <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                    </mdix:MaterialIcon.RenderTransform>
+                </mdix:MaterialIcon>
+            </Button>
+            <Button Width="32"
+                    Height="32"
+                    Padding="0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Command="{Binding OpenProject}"
+                    ToolTip.Tip="Open project">
+                <mdix:MaterialIcon Margin="0,2,0,0" Kind="FolderArrowRightOutline">
+                    <mdix:MaterialIcon.RenderTransform>
+                        <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                    </mdix:MaterialIcon.RenderTransform>
+                </mdix:MaterialIcon>
+            </Button>
+            <Button Width="32"
+                    Height="32"
+                    Padding="0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Command="{Binding SaveProject}"
+                    ToolTip.Tip="Save project">
+                <mdix:MaterialIcon Margin="0,2,0,0" Kind="ContentSave">
+                    <mdix:MaterialIcon.RenderTransform>
+                        <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                    </mdix:MaterialIcon.RenderTransform>
+                </mdix:MaterialIcon>
+            </Button>
+            <Border Width="1"
+                    Margin="5,0"
+                    Background="{DynamicResource SystemChromeHighColor}" />
+            <Button Width="32"
+                    Height="32"
+                    Padding="0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Command="{Binding ChangeTheme}"
+                    ToolTip.Tip="Change UI theme">
+                <mdix:MaterialIcon Margin="0,2,0,0" Kind="ThemeLightDark">
+                    <mdix:MaterialIcon.RenderTransform>
+                        <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                    </mdix:MaterialIcon.RenderTransform>
+                </mdix:MaterialIcon>
+            </Button>
+            <Border Width="1"
+                    Margin="5,0"
+                    Background="{DynamicResource SystemChromeHighColor}" />
+            <Button Width="32"
+                    Height="32"
+                    Padding="0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Command="{Binding Minimize}">
+                <mdix:MaterialIcon Margin="0,2,0,0" Kind="Minus">
+                    <mdix:MaterialIcon.RenderTransform>
+                        <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                    </mdix:MaterialIcon.RenderTransform>
+                </mdix:MaterialIcon>
+            </Button>
+            <Button Width="32"
+                    Height="32"
+                    Padding="0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Command="{Binding ChangeState}">
+                <Grid Margin="0,0,1,1">
+                    <mdix:MaterialIcon Margin="0,1,0,0"
+                                       IsVisible="{Binding !IsMaximized}"
+                                       Kind="Fullscreen">
+                        <mdix:MaterialIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                        </mdix:MaterialIcon.RenderTransform>
+                    </mdix:MaterialIcon>
+                    <mdix:MaterialIcon Margin="0,1,0,0"
+                                       IsVisible="{Binding IsMaximized}"
+                                       Kind="WindowRestore">
+                        <mdix:MaterialIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                        </mdix:MaterialIcon.RenderTransform>
+                    </mdix:MaterialIcon>
+                </Grid>
+            </Button>
+            <Button Width="32"
+                    Height="32"
+                    Padding="0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Command="{Binding Close}">
+                <mdix:MaterialIcon Margin="0,1,0,0" Kind="Close">
+                    <mdix:MaterialIcon.RenderTransform>
+                        <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+                    </mdix:MaterialIcon.RenderTransform>
+                </mdix:MaterialIcon>
+            </Button>
+        </StackPanel>
+        <ContentControl Grid.Row="1" Content="{Binding Content}" />
+    </Grid>
 </Window>
