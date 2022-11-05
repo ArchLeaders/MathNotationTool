@@ -1,5 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Themes.Fluent;
+using AvaloniaGenerics.Dialogs;
+using MathNotationTool.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,10 +13,10 @@ namespace MathNotationTool.ViewModels
 {
     public class AppViewModel : ReactiveObject
     {
-        private string version = "Math Notation Tool - v0.0.4-alpha"; // Use compile time keys for version?
-        public string Version {
-            get => version;
-            set => this.RaiseAndSetIfChanged(ref version, value);
+        private CalculatorView calculator = new();
+        public CalculatorView Calculator {
+            get => calculator;
+            set => this.RaiseAndSetIfChanged(ref calculator, value);
         }
 
         // 
@@ -35,8 +37,5 @@ namespace MathNotationTool.ViewModels
                 File.WriteAllText(result, View.Editor.Text);
             }
         }
-        public void ChangeState(string _) => View.WindowState = View.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
-        public void Minimize(string _) => View.WindowState = WindowState.Minimized;
-        public void Close() => Environment.Exit(1);
     }
 }
