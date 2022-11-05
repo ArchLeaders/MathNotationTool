@@ -9,25 +9,17 @@
         Title="Math Notation Tool"
         Width="1000"
         Height="600"
-        Padding="8"
         d:DesignHeight="450"
         d:DesignWidth="800"
-        Background="Transparent"
+        Background="{DynamicResource SystemChromeLowColor}"
         ExtendClientAreaChromeHints="NoChrome"
         ExtendClientAreaTitleBarHeightHint="90"
         ExtendClientAreaToDecorationsHint="True"
         Icon="/Assets/Icon.ico"
-        TransparencyLevelHint="Transparent"
         mc:Ignorable="d">
 
     <Border BoxShadow="1 1 6 1 #35000000" CornerRadius="8">
         <Grid RowDefinitions="75,*">
-            <Border Background="{DynamicResource SystemChromeLowColor}"
-                    CornerRadius="8,8,0,0"
-                    IsHitTestVisible="False" />
-            <Border Grid.Row="1"
-                    Background="{DynamicResource SystemChromeLowColor}"
-                    CornerRadius="0,0,8,8" />
             <Grid Margin="30,0,0,30"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Bottom"
