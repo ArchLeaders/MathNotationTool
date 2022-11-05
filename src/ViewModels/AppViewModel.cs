@@ -17,16 +17,23 @@ namespace MathNotationTool.ViewModels
             set => this.RaiseAndSetIfChanged(ref version, value);
         }
 
-        private bool isMaximized = false;
-        public bool IsMaximized {
-            get => isMaximized;
-            set => this.RaiseAndSetIfChanged(ref isMaximized, value);
-        }
+        // 
+        // Context Menu
 
-        public void ChangeTheme(string _)
+        public void SelectAll() => View.Editor.SelectAll();
+
+        public void Copy() => View.Editor.Copy();
+
+        public void Cut() => View.Editor.Cut();
+
+        public void Paste() => View.Editor.Paste();
+
+        public async void Export()
         {
-            Theme.Mode = Theme.Mode == FluentThemeMode.Dark ? FluentThemeMode.Light : FluentThemeMode.Dark;
-            File.WriteAllText(ThemeFile, Theme.Mode.ToString());
+            var result = await BrowserDialog.SaveFile.ShowDialog();
+            if (result != null) {
+                File.WriteAllText(result, View.Editor.Text);
+            }
         }
         public void ChangeState(string _) => View.WindowState = View.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         public void Minimize(string _) => View.WindowState = WindowState.Minimized;

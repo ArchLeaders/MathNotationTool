@@ -4,40 +4,84 @@
              xmlns:ae="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             d:DesignHeight="450" d:DesignWidth="800" mc:Ignorable="d"
+             xmlns:mdix="using:Material.Icons.Avalonia"
              xmlns:viewModels="clr-namespace:MathNotationTool.ViewModels"
              xmlns:views="clr-namespace:MathNotationTool.Views"
-			 CornerRadius="8">
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             CornerRadius="8"
+             mc:Ignorable="d">
     <Design.DataContext>
         <viewModels:AppViewModel />
     </Design.DataContext>
 
-    <Grid Margin="30">
-        <Grid ColumnDefinitions="*,345">
+    <Grid Margin="30,0,30,30">
+        <Grid ColumnDefinitions="*,340">
             <Border Margin="0,0,10,0"
                     BorderBrush="{DynamicResource SystemChromeMediumColor}"
                     BorderThickness="2"
                     BoxShadow="4 4 20 2 #25000000"
                     CornerRadius="4">
-                <ae:TextEditor x:Name="editor"
+                <ae:TextEditor x:Name="Editor"
                                Padding="10"
                                FontFamily="Consolas,Menlo,Monospace"
                                FontSize="14"
                                FontWeight="Light"
                                HorizontalScrollBarVisibility="Auto"
-                               Text="// &#x0a;// Math Notation Here!&#x0a;&#x0a;// Inline math functions&#x0a;int inline = 15 + 45 * 34;&#x0a;&#x0a;// Reference an equation in the history panel&#x0a;int refernce = query();&#x0a;&#x0a;// Return the final solution&#x0a;return inline + refernce;"
                                VerticalScrollBarVisibility="Auto"
                                WordWrap="False" />
+                <Border.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="{Binding SelectAll}"
+                                  Header="Select All"
+                                  InputGesture="Ctrl + A">
+                            <MenuItem.Icon>
+                                <mdix:MaterialIcon Kind="SelectAll" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Command="{Binding Copy}"
+                                  Header="Copy"
+                                  InputGesture="Ctrl + C">
+                            <MenuItem.Icon>
+                                <mdix:MaterialIcon Kind="ContentCopy" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Command="{Binding Cut}"
+                                  Header="Cut"
+                                  InputGesture="Ctrl + X">
+                            <MenuItem.Icon>
+                                <mdix:MaterialIcon Kind="ContentCut" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Command="{Binding Paste}"
+                                  Header="Paste"
+                                  InputGesture="Ctrl + V">
+                            <MenuItem.Icon>
+                                <mdix:MaterialIcon Kind="ContentPaste" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Command="{Binding Export}"
+                                  Header="Export"
+                                  HotKey="Ctrl + E"
+                                  InputGesture="Ctrl + E">
+                            <MenuItem.Icon>
+                                <mdix:MaterialIcon Kind="Export" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </Border.ContextMenu>
             </Border>
 
             <Border Grid.Column="1"
                     Margin="10,0,0,0"
+                    Padding="0,0,0,2"
                     BorderBrush="{DynamicResource SystemChromeMediumColor}"
                     BorderThickness="2"
-					Padding="0,0,0,2"
                     BoxShadow="4 4 20 2 #25000000"
                     CornerRadius="4">
-                <views:CalculatorView />
+                <ContentControl Content="{Binding Calculator}" />
             </Border>
         </Grid>
     </Grid>
