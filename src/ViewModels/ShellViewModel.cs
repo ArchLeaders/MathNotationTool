@@ -83,7 +83,7 @@ namespace MathNotationTool.ViewModels
                 writer.Write((uint)history.Count);
 
                 foreach (var item in history) {
-                    writer.Write(item.Name);
+                    writer.Write(item.Id);
                     writer.Write(item.SrcEquationStr);
                     writer.Write(item.Value);
                 }
@@ -115,10 +115,14 @@ namespace MathNotationTool.ViewModels
                     ViewModel.Calculator.ViewModel.History.Clear();
                     uint count = reader.ReadUInt32();
                     for (int i = 0; i < count; i++) {
-                        string name = reader.ReadString();
+                        int id = reader.ReadInt32();
                         string eq = reader.ReadString();
                         decimal value = reader.ReadDecimal();
-                        ViewModel.Calculator.ViewModel.History.Add(new(name, eq, value));
+
+                        ViewModel.Calculator.ViewModel.History.Add(new(id, eq, value));
+                        if (id > ViewModel.Calculator.ViewModel.LastId) {
+                            ViewModel.Calculator.ViewModel.LastId = id;
+                        }
                     }
 
                     // Read editor text

@@ -14,10 +14,10 @@ namespace MathNotationTool.Models
 {
     public class HistoryItemModel : ReactiveObject
     {
-        private string name = null!;
-        public string Name {
-            get => name;
-            set => this.RaiseAndSetIfChanged(ref name, value);
+        private int id = 0;
+        public int Id {
+            get => id;
+            set => this.RaiseAndSetIfChanged(ref id, value);
         }
 
         private string evaluatedStr = null!;
@@ -44,25 +44,40 @@ namespace MathNotationTool.Models
             set => this.RaiseAndSetIfChanged(ref srcEquation, value);
         }
 
-        public async void Copy() => await(Application.Current?.Clipboard?.SetTextAsync(SrcEquationStr) ?? Task.CompletedTask);
-        public async void CopyId() => await(Application.Current?.Clipboard?.SetTextAsync(Name) ?? Task.CompletedTask);
-        public async void CopySolution() => await(Application.Current?.Clipboard?.SetTextAsync($"{Value:0.00}") ?? Task.CompletedTask);
-        public void Remove() => ViewModel.Calculator.ViewModel.History.Remove(this);
-        public void Clear() => ViewModel.Calculator.ViewModel.History.Clear();
+        public async void Copy() => await (Application.Current?.Clipboard?.SetTextAsync(SrcEquationStr) ?? Task.CompletedTask);
+
+        public async void CopyId() => await (Application.Current?.Clipboard?.SetTextAsync($"Id: {Id}") ?? Task.CompletedTask);
+
+        public async void CopySolution() => await (Application.Current?.Clipboard?.SetTextAsync($"{Value:0.00}") ?? Task.CompletedTask);
+
+        public void Remove()
+        {
+            ViewModel.Calculator.ViewModel.History.Remove(this);
+            if (ViewModel.Calculator.ViewModel.History.Count == 0) {
+                ViewModel.Calculator.ViewModel.LastId = 0;
+            }
+        }
+
+        public void Clear()
+        {
+            ViewModel.Calculator.ViewModel.History.Clear();
+            ViewModel.Calculator.ViewModel.LastId = 0;
+        }
 
         public HistoryItemModel(string equationStr)
         {
+            ViewModel.Calculator.ViewModel.LastId++;
             string eq = equationStr.GetSafe();
-            Name = $"{ViewModel.Calculator.ViewModel.LastId++}";
+            Id = ViewModel.Calculator.ViewModel.LastId;
             SrcEquation = eq;
             SrcEquationStr = eq;
             Value = (decimal)SrcEquation.EvalNumerical();
             EvaluatedStr = $"{equationStr} = {value:0.00}";
         }
 
-        public HistoryItemModel(string name, string equationStr, decimal value)
+        public HistoryItemModel(int id, string equationStr, decimal value)
         {
-            Name = name;
+            Id = id;
             SrcEquation = equationStr.GetSafe();
             SrcEquationStr = equationStr.GetSafe();
             Value = value;

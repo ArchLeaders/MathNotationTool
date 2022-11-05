@@ -12,7 +12,7 @@ namespace MathNotationTool.ViewModels
     {
         internal static readonly string[] BadChars = new string[] { "x*", "÷/", "πpi" };
 
-        public int LastId { get; set; } = 1;
+        public int LastId { get; set; } = 0;
 
         private string current = "";
         public string Current {

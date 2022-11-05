@@ -27,7 +27,7 @@
                                        VerticalAlignment="Center"
                                        FontSize="10"
                                        Opacity="0.6"
-                                       Text="{Binding Name, StringFormat=Id: {0}}" />
+                                       Text="{Binding Id, StringFormat=Id: {0}}" />
                             <TextBlock Grid.Row="1"
                                        Height="18"
                                        Margin="0,2,0,0"
