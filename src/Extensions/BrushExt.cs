@@ -1,7 +1,7 @@
 ﻿using Avalonia.Media;
 using System;
 
-namespace MathNotationTool.Extenstions
+namespace MathNotationTool.Extensions
 {
     public static class BrushExt
     {
