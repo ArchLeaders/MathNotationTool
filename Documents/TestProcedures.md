@@ -4,33 +4,33 @@
 ### Open the provided MathNotationTool [project file](SampleProject.mntp) and run the opened math notes.
 
 - **Good:** The project opens with no errors.
-- **Neutral:** The project opens, but is slow and/or unresponsive.
+- **Neutral:** The project opens but is slow and/or unresponsive.
 - **Bad:** The project fails to open.
 
 <br>
 
 - **User One Responce:** 'Good'
 - **User Two Responce:** 'Good'
-- **User Three Responce:** ' '
+- **User Three Responce:** 'Good'
 
-### Do one or more claculations with the built-in calculator.
+### Do one or more calculations with the built-in calculator.
 
-- **Good:** The calculations are evaluated correctly and are add to the Calculator History.
+- **Good:** The calculations are evaluated correctly and are added to the Calculator History.
 - **Bad:** The calculations are <ins>***not***</ins> add to the Calculator History.
 
 <br>
 
 - **User One Responce:** 'Good'
 - **User Two Responce:** 'Good'
-- **User Three Responce:** ' '
+- **User Three Responce:** 'Good'
 
 ### Save the project, restart the application, and re-open the project.
 
-- **Good:** The project saves succeffully without any errors. (Confirm success by openeing the project after restarting)
-- **Bad:** The project did not save succefully.
+- **Good:** The project saves successfully without any errors. (Confirm success by opening the project after restarting)
+- **Bad:** The project did not save successfully.
 
 <br>
 
 - **User One Responce:** 'Good'
 - **User Two Responce:** 'Good'
-- **User Three Responce:** ' '
+- **User Three Responce:** 'Good (would like a prompt after saving)'
