@@ -16,7 +16,7 @@
 ### Do one or more calculations with the built-in calculator.
 
 - **Good:** The calculations are evaluated correctly and are added to the Calculator History.
-- **Bad:** The calculations are <ins>***not***</ins> add to the Calculator History.
+- **Bad:** The calculations are <ins>***not***</ins> added to the Calculator History.
 
 <br>
 
