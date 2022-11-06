@@ -93,6 +93,8 @@ namespace MathNotationTool.ViewModels
                 writer.Flush();
                 writer.Dispose();
             }
+
+            await MessageBox.Show("The project saved succefully.", "Notice", icon: MaterialIconKind.ContentSaveAlert);
         }
 
         public async void OpenProject()
