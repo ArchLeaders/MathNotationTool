@@ -1,7 +1,7 @@
 # Programming 11 - Test Procedures
 > **Download:** [Windows](https://github.com/ArchLeaders/MathNotationTool/releases/download/v1.0.0/Win64-MathNotationTool.exe), [Linux](https://github.com/ArchLeaders/MathNotationTool/releases/download/v1.0.0/Linux64-MathNotationTool), [macOS](https://github.com/ArchLeaders/MathNotationTool/releases/download/v1.0.0/OSx64-MathNotationTool)
 
-### Open the provided MathNotationTool [project file](.\SampleProject.mntp) and run the opened math notes.
+### Open the provided MathNotationTool [project file](SampleProject.mntp) and run the opened math notes.
 
 - **Good:** The project opens with no errors.
 - **Neutral:** The project opens, but is slow and/or unresponsive.
@@ -10,7 +10,7 @@
 <br>
 
 - **User One Responce:** 'Good'
-- **User Two Responce:** ' '
+- **User Two Responce:** 'Good'
 - **User Three Responce:** ' '
 
 ### Do one or more claculations with the built-in calculator.
@@ -21,7 +21,7 @@
 <br>
 
 - **User One Responce:** 'Good'
-- **User Two Responce:** ' '
+- **User Two Responce:** 'Good'
 - **User Three Responce:** ' '
 
 ### Save the project, restart the application, and re-open the project.
@@ -32,5 +32,5 @@
 <br>
 
 - **User One Responce:** 'Good'
-- **User Two Responce:** ' '
+- **User Two Responce:** 'Good'
 - **User Three Responce:** ' '
