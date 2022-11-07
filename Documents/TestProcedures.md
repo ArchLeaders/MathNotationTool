@@ -9,9 +9,9 @@
 
 <br>
 
-- **User One Responce:** 'Good'
-- **User Two Responce:** 'Good'
-- **User Three Responce:** 'Good'
+- **User One Response:** 'Good'
+- **User Two Response:** 'Good'
+- **User Three Response:** 'Good'
 
 ### Do one or more calculations with the built-in calculator.
 
@@ -20,9 +20,9 @@
 
 <br>
 
-- **User One Responce:** 'Good'
-- **User Two Responce:** 'Good'
-- **User Three Responce:** 'Good'
+- **User One Response:** 'Good'
+- **User Two Response:** 'Good'
+- **User Three Response:** 'Good'
 
 ### Save the project, restart the application, and re-open the project.
 
@@ -31,6 +31,6 @@
 
 <br>
 
-- **User One Responce:** 'Good'
-- **User Two Responce:** 'Good'
-- **User Three Responce:** 'Good (would like a prompt after saving)'
+- **User One Response:** 'Good'
+- **User Two Response:** 'Good'
+- **User Three Response:** 'Good (would like a prompt after saving)'
