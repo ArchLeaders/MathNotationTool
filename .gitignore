@@ -5,6 +5,7 @@
 
 # Ignore docs (branch)
 /docs
+/.vscode
 
 # User-specific files
 *.rsuser
