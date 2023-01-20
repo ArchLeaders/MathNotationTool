@@ -1,18 +1,5 @@
 # Presentation Outline
 
-## Licensing and Distribution
-> *" With whom will you share your product, creativity, and, if applicable, intellectual property?"*
-
-### Summary
-
-Math Notation Tool is an open-source application available to everyone free of charge under the MIT license agreement.
-
-### Body
-
-Math notation tool is provided free under the MIT license agreement. This license gives any user access to the software and associated materials without restriction with the right to: use, copy, modify, publish, distribute, sublicense and sell copies of the software, subject to the condition that the author or copyright holder is never liable for any claim, damages, or other liability.
-
----
-
 ## Math Notation Tool
 > How can you or others build on your concept?
 
@@ -29,6 +16,19 @@ Math Notation Tool is designed to let users easily read and write math problems 
 
 **bullet point list of possible improvements*<br>
 -> Even with all those features in place, there's still definite room for improvement. Such as advanced algebraic and binary math symbols in the built-in calculator, support for external C# libraries to help with complex algorithms, and better performance and ease of use throughout the application. And because the project is fully open-source, everyone is free to request changes to help add new features and fixed like these.
+
+---
+
+## Licensing and Distribution
+> *" With whom will you share your product, creativity, and, if applicable, intellectual property?"*
+
+### Summary
+
+Math Notation Tool is provided as open-source software available to everyone free of charge under the MIT license agreement.
+
+### Body
+
+Math notation tool is provided free under the MIT license agreement. This license gives any user access to the software and associated materials without restriction and with the right to use, copy, modify, publish, distribute, sublicense and/or sell copies of the software, subject to the condition that the author or copyright holder is never liable for any claim, damages, or other liability.
 
 ---
 
@@ -52,7 +52,7 @@ The general design process for this project followed a set of abstract steps (id
 
 - Advanced Math Functions
   - Bitwise operations
-  - Algerbraic expressions
+  - Algebraic expressions
 - Improved performance and stability
   - Ahead of time JIT compilation (speed up first code execution)
   - Non-destructive error handling
